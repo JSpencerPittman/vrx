@@ -18,6 +18,8 @@
 #include <chrono>
 #include <string>
 #include <vector>
+#include <gz/msgs/pose_v.pb.h>
+#include <gz/msgs/float_v.pb.h>
 #include <gz/common/Profiler.hh>
 #include <gz/sim/components/Name.hh>
 #include <gz/sim/components/Pose.hh>
