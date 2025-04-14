@@ -11,6 +11,10 @@ find_package(wamv_description REQUIRED)
 #   INSTALL DESTINATION urdf
 # )
 
+# Hooks
+ament_environment_hooks("hooks/resource_paths.dsv.in")
+ament_environment_hooks("hooks/resource_paths.sh")
+
 # Install meshes and textures
 install(DIRECTORY models/
   DESTINATION share/${PROJECT_NAME}/models)

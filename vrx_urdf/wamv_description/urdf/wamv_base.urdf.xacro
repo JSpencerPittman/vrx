@@ -94,11 +94,21 @@
     </collision>
   </xacro:macro>
 
+    <!-- Dummy base link for KDL support
+       KDL does not allow inertia on the base link -->
+    <link name="${namespace}/root_link"/>
+
+    <joint name="${namespace}/root_to_base" type="fixed">
+      <parent link="${namespace}/root_link"/>
+      <child link="${namespace}/base_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
   <!-- Basic model of the 16' WAM-V USV -->
   <link name="${namespace}/base_link">
     <visual>
       <geometry>
-        <mesh filename="package://wamv_description/models/WAM-V-Base/mesh/WAM-V-Base.dae"/>
+        <mesh filename="package://WAM-V-Base/mesh/WAM-V-Base.dae"/>
       </geometry>
     </visual>
 
@@ -134,10 +144,10 @@
         <specular>1.0 1.0 1.0</specular>
         <pbr>
           <metal>
-            <albedo_map>model://wamv_description/models/WAM-V-Base/mesh/WAM-V_Albedo.png</albedo_map>
-            <normal_map>model://wamv_description/models/WAM-V-Base/mesh/WAM-V_Normal.png</normal_map>
-            <roughness_map>model://wamv_description/models/WAM-V-Base/mesh/WAM-V_Roughness.png</roughness_map>
-            <metalness_map>model://wamv_description/models/WAM-V-Base/mesh/WAM-V_Metalness.png</metalness_map>
+            <albedo_map>model://WAM-V-Base/mesh/WAM-V_Albedo.png</albedo_map>
+            <normal_map>model://WAM-V-Base/mesh/WAM-V_Normal.png</normal_map>
+            <roughness_map>model://WAM-V-Base/mesh/WAM-V_Roughness.png</roughness_map>
+            <metalness_map>model://WAM-V-Base/mesh/WAM-V_Metalness.png</metalness_map>
           </metal>
         </pbr>
       </material>
